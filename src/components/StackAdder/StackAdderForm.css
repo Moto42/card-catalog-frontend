@@ -1,0 +1,9 @@
+#StackAdderContainer {
+  display: inline-block;
+  text-align: justify;
+  padding: 1rem;
+
+}
+#StackAdderForm textarea{
+  vertical-align: top;
+}
