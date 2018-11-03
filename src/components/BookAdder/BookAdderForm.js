@@ -27,9 +27,8 @@ class BookAdderForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
   };
 
-  async getStacksList(){
-    const stacksObject  = await fetch('/api/stacks').then(console.log);
-    console.log(stacksObject)
+  getStacksList(){
+    fetch('/api/stacks').then(console.log);
   }
 
   formDataUpdater(event){
