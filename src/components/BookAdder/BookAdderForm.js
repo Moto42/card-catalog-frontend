@@ -70,7 +70,7 @@ class BookAdderForm extends React.Component{
       <label> checkedOut:    <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='checkedOut' />   </label><br/>
       <label> shelfLocation: <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='shelfLocation' /></label><br/>
       <label> condition:     <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='state' />        </label><br/>
-      <button onClick={getStacksList}>Test it</button>
+      <button onClick={this.getStacksList}>Test it</button>
     </form>
     <div>
 
