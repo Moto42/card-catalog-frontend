@@ -9,9 +9,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
+        // <Header />
         <BookAdder />
-        <BookSearch />
+        // <BookSearch />
       </div>
     );
   }

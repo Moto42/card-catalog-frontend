@@ -8,7 +8,12 @@ class BookAdderForm extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      stacksList : {},
+      stacksList : {
+        'this':1,
+        'is'  :2,
+        'a'   :3,
+        'test':4,
+      },
       formData : {
         title        : '',
         authorFirst  : '',
@@ -27,8 +32,23 @@ class BookAdderForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
   };
 
+  stackReducer(acc,cur) {
+    acc={'one':1,'two':2,'three':3,'four':4}
+    return acc;
+  }
+
   getStacksList(){
-    fetch('/api/stacks').then(console.log);
+    const req = new XMLHttpRequest();
+    req.open("GET",'/api/stacks',true);
+    req.onreadystatechange = () => {
+      if(req.readyState === 4){
+        const data = JSON.parse(req.responseText);
+        const stacks = data.reduce(this.stackReducer,{})
+        this.setState({stacksList: stacks})
+
+      }
+    }
+    req.send();
   }
 
   formDataUpdater(event){
@@ -57,6 +77,8 @@ class BookAdderForm extends React.Component{
 
     this.getStacksList();
 
+    const selectionList = Object.keys(this.state.stacksList).map(k=><option> {k} </option>)
+
     return (<div id='StackAdderContainer'>
     <form id='BookAdderForm'>
       <label> title:         <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='title' />        </label><br/>
@@ -68,7 +90,11 @@ class BookAdderForm extends React.Component{
       <label> isbn:          <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='isbn' />         </label><br/>
       <label> format:        <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='format' />       </label><br/>
       <label> checkedOut:    <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='checkedOut' />   </label><br/>
-      <label> shelfLocation: <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='shelfLocation' /></label><br/>
+      <label>
+        shelfLocation: <select onChange={this.formDataUpdater} type  ='text' id ='shelfLocation' >
+          {selectionList}
+          </select>
+      </label><br/>
       <label> condition:     <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='state' />        </label><br/>
       <button onClick={this.getStacksList}>Test it</button>
     </form>
