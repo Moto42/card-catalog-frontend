@@ -12,3 +12,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.compBorder {
+  border-radius: 20%;
+  border-style: ridge;
+  border-width: medium;
+}

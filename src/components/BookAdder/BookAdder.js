@@ -12,7 +12,7 @@ class BookAdder extends Component{
   }
 
   render() {
-    return ( <div>
+    return ( <div className='.compBorder'>
       <BookAdderForm adderFunction={this.adderFunction}/>
 
       </div> )
