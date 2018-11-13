@@ -3,7 +3,7 @@ import StackAdderForm from './StackAdderForm';
 
 function StackAdder(){
   return ( <div>
-    <StackAdderForm adderFunction={this.adderFunction}/>
+    <StackAdderForm />
     </div> )
 }
 

@@ -3,7 +3,7 @@ import BookAdderForm from './BookAdderForm';
 
 function  BookAdder() {
   return ( <div className='.compBorder'>
-  <BookAdderForm adderFunction={this.adderFunction}/>
+  <BookAdderForm />
   </div> )
 }
 
