@@ -5,6 +5,7 @@ class StackAdderForm extends React.Component{
   constructor(props){
     super(props);
     this.state = {
+      serverResponse : '',
       formData : {
         name         : 'Lower Shelf',
         building     : 'home',
@@ -37,6 +38,21 @@ class StackAdderForm extends React.Component{
   handleSubmit(event){
     const payload = JSON.stringify(this.state.formData);
     const req = new XMLHttpRequest();
+    req.onreadystatechange = () => {
+      if(req.readyState === 4) {
+        switch (req.status) {
+          case 200:
+            this.setState({serverResponse:`New container "${this.state.formData.name}" successfully added to the stacks.`})
+            break;
+          case 500:
+            this.setState({serverResponse:`Error adding new container to stacks.`})
+            break;
+          default:
+            this.setState({serverResponse:`Something unexpected has occured. Server response code: ${req.status}`})
+            break;
+        }
+      }
+    };
     req.open('POST','api/stacks',true);
     req.setRequestHeader('Content-Type','application/json');
     req.send(payload);
@@ -54,8 +70,8 @@ class StackAdderForm extends React.Component{
       <label> description  : <textarea onChange={this.formDataUpdater} value={this.state.formData.description}  id ='description' /></label><br/>
       <button type='button' onClick={this.handleSubmit}>submit</button>
     </form>
-    <div>
-
+    <div id='serverResponse'>
+      {this.state.serverResponse}
     </div>
     </div>)
   }
