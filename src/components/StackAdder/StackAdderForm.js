@@ -7,13 +7,13 @@ class StackAdderForm extends React.Component{
     this.state = {
       serverResponse : '',
       formData : {
-        name         : 'Lower Shelf',
-        building     : 'home',
-        floor        : 'ground',
-        room         : 'bedroom',
-        container    : 'Black Bookshelf',
-        containerType: 'shelf',
-        description  : 'Black bookshelf in closet, lower shelf.',
+        name         : '',
+        building     : '',
+        floor        : '',
+        room         : '',
+        container    : '',
+        containerType: '',
+        description  : '',
       },
       containerTypes : [],
     };
