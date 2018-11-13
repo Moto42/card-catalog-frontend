@@ -1,22 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import BookAdderForm from './BookAdderForm';
 
-class BookAdder extends Component{
-  constructor(props){
-    super(props);
-
-  }
-
-  adderFunction(prips) {
-    console.log(prips)
-  }
-
-  render() {
-    return ( <div className='.compBorder'>
-      <BookAdderForm adderFunction={this.adderFunction}/>
-
-      </div> )
-    }
+function  BookAdder() {
+  return ( <div className='.compBorder'>
+  <BookAdderForm adderFunction={this.adderFunction}/>
+  </div> )
 }
 
 
