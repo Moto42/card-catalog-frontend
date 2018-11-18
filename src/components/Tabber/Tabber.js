@@ -6,9 +6,17 @@ class Tabber extends Component {
   constructor(props){
     super(props)
     this.state = {
-      displayTab : 'testing',
+      displayTab : '',
     }
     this.changeTab = this.changeTab.bind(this);
+  }
+
+  componentDidMount(){
+    if(this.props.defaultTab){
+      this.setState({displayTab : this.props.defaultTab})
+    } else {
+      this.setState({displayTab : this.props.children[0].props.tabName})
+    }
   }
 
   changeTab(tabName) {
