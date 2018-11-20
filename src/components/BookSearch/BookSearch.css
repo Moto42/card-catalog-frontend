@@ -1,0 +1,14 @@
+
+
+#BooksSearch {
+  display: grid;
+  grid-template-areas:
+    "search  display";
+
+}
+#BooksSearchForm {
+  grid-area: search;
+}
+#BooksListDisplay {
+  grid-area: display;
+}
