@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ChecklistDisplay     from './ChecklistDisplay';
 
 class BooksSearchForm extends Component {
+
   render() {
     return (<div id='BooksSearchForm'>
       <input type='text' placeholder = 'Title Search' onChange={this.props.updateSearchString}/>
