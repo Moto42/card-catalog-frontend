@@ -1,14 +1,30 @@
 
 
 #BooksSearch {
-  display: grid;
+  display: flex;
   grid-template-areas:
     "search  display";
-
 }
 #BooksSearchForm {
+  position: relative;
   grid-area: search;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-direction: column;
+  max-width: 15rem;
 }
+
 #BooksListDisplay {
-  grid-area: display;
+}
+
+.bookSearchChecklist {
+  display: inline-flex;
+  flex-direction: column;
+  align-content:
+}
+
+.booksSearchCheckBox {
+  display: flex;
+  justify-content: flex-start;
 }
