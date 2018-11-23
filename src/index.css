@@ -14,7 +14,7 @@ code {
 }
 
 .compBorder {
-  border-radius: 20%;
-  border-style: ridge;
-  border-width: medium;
+  border-radius : 20%;
+  border-style  : ridge;
+  border-width  : medium;
 }

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import BooksListDisplay from './BooksListDisplay';
-import BooksSearchForm from './BooksSearchForm';
+import BooksListDisplay   from './BooksListDisplay';
+import BooksSearchForm    from './BooksSearchForm';
+import BookInfo           from '../BookInfo';
 import './BookSearch.css';
 
 class BookSearch extends Component {
@@ -8,6 +9,8 @@ class BookSearch extends Component {
     super(props);
     this.state = {
       serverResponse    : '',
+      details           : false,
+      detailsBook       : {},
       booksList         : [],
       filteredBooksList : [],
       genreList         : [],
@@ -21,6 +24,8 @@ class BookSearch extends Component {
     this.checkGenre         = this.checkGenre.bind(this);
     this.checkSubjects      = this.checkSubjects.bind(this);
     this.matchAll           = this.matchAll.bind(this);
+    this.showBookInfo       = this.showBookInfo.bind(this);
+    this.hideBookInfo       = this.hideBookInfo.bind(this);
   }
 
   findAnyMatch(a1,a2) {
@@ -62,7 +67,6 @@ class BookSearch extends Component {
       return activeSubjects.every( subject => bookSubject.indexOf(subject) >-1 );
     }
   }
-
 
   genreTicker(event) {
     const genre    = event.target.nextSibling.data;
@@ -143,10 +147,22 @@ class BookSearch extends Component {
     return list;
   }
 
+  showBookInfo(book) {
+    this.setState({
+      detailsBook : book,
+      details     : true,
+    })
+  }
+
+  hideBookInfo() {
+    this.setState({details:false})
+  }
+
   render(){
     let filteredList = this.filterList(this.state.booksList);
 
     return (<div id='BooksSearch'>
+      {this.state.details === true ? <BookInfo book={this.state.detailsBook} hideBookInfo={this.hideBookInfo}/> : <div></div>}
       <BooksSearchForm
         updateSearchString = {this.updateSearchString}
         genreList          = {this.state.genreList}
@@ -156,11 +172,12 @@ class BookSearch extends Component {
         booksList          = {filteredList}
       />
       <BooksListDisplay
+        showBookInfo  = {this.showBookInfo}
         booksList     = {filteredList}
       />
       <div id='serverResponse'>{this.state.serverResponse}</div>
     </div>)
-  }
+      }
 }
 
 export default BookSearch;

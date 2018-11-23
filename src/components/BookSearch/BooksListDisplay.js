@@ -2,7 +2,7 @@ import React from 'react';
 import BookListing from './BookListing';
 
 function BooksListDisplay(props) {
-  const listings = props.booksList.map(b=><BookListing book={b} />)
+  const listings = props.booksList.map(b=><BookListing book={b} showBookInfo={props.showBookInfo}/>)
   return(
     <table className="bookListingTable" id='BooksListDisplay'>
       <tr>
