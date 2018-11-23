@@ -63,9 +63,14 @@
 
 #BookEdit,
 #BookDetails {
-
+  display: flex;
+  flex-direction: column;
 }
 #BookInfo p {
   margin: 0px;
   margin-top: .75rem;
+}
+#BookInfo h2 {
+  margin: 0px;
+  margin-top: .5rem;
 }

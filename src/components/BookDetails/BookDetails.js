@@ -32,10 +32,13 @@ function BookDetails(props) {
       Format: {format}
       </p>
       <p>
-      ShelfLocation {shelfLocation} Condition {condition}<br/>
+      ShelfLocation {shelfLocation}
       </p>
       <p>
-      Genre:{genre.join(', ')} <br/>
+      Condition {condition}
+      </p>
+      <p>
+      Genre:{genre.join(', ')}
       </p>
       <p>
       Subject: {subject.join(', ')}
