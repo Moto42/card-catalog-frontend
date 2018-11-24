@@ -42,11 +42,15 @@ class BookInfo extends Component {
     const {book} = this.props;
     return (
       <div id='BookInfo'>
-      <div class='topBar'><button onClick={this.toggleEdit}>{this.state.editButtonText}</button><button onClick={this.props.hideBookInfo}>X</button></div>
-      {this.state.display === 'details' ?
-        <BookDetails book={book} shelf={this.state.shelf} /> :
-        <BookEdit book={book} shelf={this.state.shelf} /> }
+
+      <div id='BookDetailsContainer'>
+        <div class='topBar'><button onClick={this.toggleEdit}>{this.state.editButtonText}</button><button onClick={this.props.hideBookInfo}>X</button></div>
+          {this.state.display === 'details' ?
+            <BookDetails book={book} shelf={this.state.shelf} /> :
+            <BookEdit book={book} shelf={this.state.shelf} /> }
+        </div>
       </div>
+
     )
   }
 }

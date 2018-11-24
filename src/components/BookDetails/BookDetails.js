@@ -21,7 +21,7 @@ function BookDetails(props) {
 
 
   return (
-    <div id="BookEdit">
+    <div id="BookDetails">
       <h2 className="title">{title}</h2>
 
       <p>
