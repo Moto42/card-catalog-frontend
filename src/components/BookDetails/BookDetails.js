@@ -11,15 +11,18 @@ function BookDetails(props) {
     isbn,
     format,
     // checkedOut,
-    shelfLocation,
+    // shelfLocation,
     state : condition,
     genre,
     subject,
   }=props.book;
+  // const {shelf} = props;
+
+
 
   return (
     <div id="BookEdit">
-      <h2 classname="title">{title}</h2>
+      <h2 className="title">{title}</h2>
 
       <p>
       Author: {authorFirst} {authorLast};
@@ -32,7 +35,12 @@ function BookDetails(props) {
       Format: {format}
       </p>
       <p>
-      ShelfLocation {shelfLocation}
+      ShelfLocation:
+        {
+          props.shelf ?
+            <div>{`${props.shelf.room} > ${props.shelf.name} > ${props.shelf.container}`}<br/>{props.shelf.description}</div> :
+            <div className='waiting'>Processing...</div>
+        }
       </p>
       <p>
       Condition {condition}

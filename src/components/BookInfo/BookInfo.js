@@ -7,7 +7,8 @@ class BookInfo extends Component {
     super(props);
     this.state = {
       display        : 'details',
-      editButtonText : 'Edit'
+      editButtonText : 'Edit',
+      shelf          : false,
     }
     this.toggleEdit = this.toggleEdit.bind(this);
   }
@@ -21,11 +22,30 @@ class BookInfo extends Component {
     });
   }
 
+  getShelfLocation(shelfLocation){
+    const req = new XMLHttpRequest();
+    req.open("GET",`/api/stacks/${shelfLocation}`,true);
+    req.onreadystatechange = () => {
+      if(req.readyState === 4){
+        const data = JSON.parse(req.responseText);
+        this.setState({shelf: data});
+      }
+    }
+    req.send();
+  }
+
+  componentDidMount(){
+    this.getShelfLocation(this.props.book.shelfLocation);
+  }
+
   render(){
+    const {book} = this.props;
     return (
       <div id='BookInfo'>
-      <div><button onClick={this.toggleEdit}>{this.state.editButtonText}</button><button onClick={this.props.hideBookInfo}>X</button></div>
-      {this.state.display === 'details' ? <BookDetails book={this.props.book} /> : <BookEdit book={this.props.book} /> }
+      <div class='topBar'><button onClick={this.toggleEdit}>{this.state.editButtonText}</button><button onClick={this.props.hideBookInfo}>X</button></div>
+      {this.state.display === 'details' ?
+        <BookDetails book={book} shelf={this.state.shelf} /> :
+        <BookEdit book={book} shelf={this.state.shelf} /> }
       </div>
     )
   }

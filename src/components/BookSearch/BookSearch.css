@@ -1,4 +1,6 @@
-
+.waiting:hover {
+  cursor : progress;
+}
 
 #BooksSearch {
   display: flex;
