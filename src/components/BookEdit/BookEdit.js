@@ -155,7 +155,7 @@ class BookEdit extends Component {
 
     return (
       <div id="BookEdit">
-        <h2 className="title">{title}</h2>
+        Title: <input type='text' placeholder="" value={title} onChange={(e) => this.handleChange('title',e.target.value)} />
 
         <p>
         Author: <input type='text' placeholder="" value={authorFirst} onChange={(e) => this.handleChange('authorFirst',e.target.value)} />
