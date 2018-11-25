@@ -11,7 +11,54 @@ body {
   color: var(--color-primary-2);
 }
 
+input[type=text] {
+  background-color: var(--color-secondary-2-1);
+  border-color: var(--color-secondary-2-1);
+  color: white;
+}
 
+#BookInfo input[type=text] {
+  background-color: var(--color-secondary-1-1);
+  border-color: var(--color-secondary-1-1);
+  color: white;
+}
+
+textarea {
+  background-color: var(--color-secondary-2-1);
+  border-color: var(--color-secondary-2-1);
+  color: white;
+}
+
+select {
+  background-color: var(--color-secondary-2-1);
+  border-color: var(--color-secondary-2-1);
+  color: white;
+}
+
+input[type=select] {
+  background-color: var(--color-secondary-2-1);
+  border-color: var(--color-secondary-2-1);
+  color: white;
+}
+
+#BookInfo input[type=select] {
+  background-color: var(--color-secondary-1-1);
+  border-color: var(--color-secondary-1-1);
+  color: white;
+}
+
+button {
+  background-color: var(--color-secondary-2-2);
+  border-color: var(--color-secondary-2-2);
+  border-radius: .3rem;
+  color: white;
+}
+
+#BookInfo button {
+  background-color: var(--color-secondary-1-2);
+  border-color: var(--color-secondary-1-2);
+  color: white;
+}
 
 
 /* CSS - Cascading Style Sheet */
