@@ -155,7 +155,8 @@ class BookSearch extends Component {
   }
 
   hideBookInfo() {
-    this.setState({details:false})
+    this.getBookList();
+    this.setState({details:false});
   }
 
   render(){
