@@ -141,7 +141,7 @@ class BookEdit extends Component {
       })
 
     return (
-      <div id="BookDetails">
+      <div id="BookEdit">
         <h2 className="title">{title}</h2>
 
         <p>
