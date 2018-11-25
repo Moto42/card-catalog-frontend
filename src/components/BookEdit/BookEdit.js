@@ -40,6 +40,7 @@ class BookEdit extends Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleSubmit(event){
@@ -114,6 +115,18 @@ class BookEdit extends Component {
     this.setState(thinger)
   }
 
+  handleDelete(){
+    const req = new XMLHttpRequest();
+    req.open("DELETE",`/api/books/${this.props.book.id}`,true);
+    req.onreadystatechange = () => {
+      if(req.readyState === 4){
+        this.props.updateNotifyer();
+      }
+    }
+    req.send();
+    this.props.deleteNotify();
+  }
+
   render() {
     const {
       title = 'untitled',
@@ -176,7 +189,10 @@ class BookEdit extends Component {
         Subject: <input type='text' placeholder="" value={subject.join(',')} onChange={(e) => this.handleChange('subject',e.target.value.toLowerCase().split(','))} />
         </p>
       <div>
-        <button onClick={this.handleSubmit}>Submit</button>
+        <button onClick={this.handleSubmit}>Submit</button><br/>
+        <details><summary>Delete This Book</summary><br/><span className='warning'>WARNING!<br/>This cannot be undone!</span><br/>
+        <button onClick={this.handleDelete}>Delete</button>
+        </details>
       </div>
       <div>
         <p>{this.state.responseText}</p>

@@ -53,7 +53,7 @@ class BookInfo extends Component {
         </div>
           {this.state.display === 'details' ?
             <BookDetails book={book} shelf={this.state.shelf} /> :
-            <BookEdit book={book} shelf={this.state.shelf} /> }
+            <BookEdit book={book} shelf={this.state.shelf} updateNotifyer={this.updateNotifyer}/> }
         </div>
       </div>
 
