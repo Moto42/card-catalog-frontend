@@ -13,6 +13,10 @@ class BookInfo extends Component {
     this.toggleEdit = this.toggleEdit.bind(this);
   }
 
+  updateNotifyer(){
+    this.props.hideBookInfo();
+  }
+
   toggleEdit(){
     const newDisplay        = this.state.display === 'details' ? 'edit'   : 'details';
     const newEditButtonText = this.state.display === 'details' ? 'Cancel' : 'Edit';
@@ -44,7 +48,9 @@ class BookInfo extends Component {
       <div id='BookInfo'>
 
       <div id='BookDetailsContainer'>
-        <div class='topBar'><button onClick={this.toggleEdit}>{this.state.editButtonText}</button><button onClick={this.props.hideBookInfo}>X</button></div>
+        <div class='topBar'>
+          <button onClick={this.toggleEdit}>{this.state.editButtonText}</button><button onClick={this.props.hideBookInfo}>X</button>
+        </div>
           {this.state.display === 'details' ?
             <BookDetails book={book} shelf={this.state.shelf} /> :
             <BookEdit book={book} shelf={this.state.shelf} /> }
