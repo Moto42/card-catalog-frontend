@@ -11,6 +11,7 @@ class BookInfo extends Component {
       shelf          : false,
     }
     this.toggleEdit = this.toggleEdit.bind(this);
+    this.updateNotifyer = this.updateNotifyer.bind(this);
   }
 
   updateNotifyer(){
