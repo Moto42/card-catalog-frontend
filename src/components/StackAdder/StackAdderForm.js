@@ -61,13 +61,13 @@ class StackAdderForm extends React.Component{
   render(){
     return (<div id='StackAdderContainer'>
     <form id='StackAdderForm'>
-      <label> name         : <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='name' /></label><br/>
-      <label> building     : <input onChange={this.formDataUpdater} value={this.state.formData.building}  type  ='text' id ='building' /></label><br/>
-      <label> floor        : <input onChange={this.formDataUpdater} value={this.state.formData.floor}  type  ='text' id ='floor' /></label><br/>
-      <label> room         : <input onChange={this.formDataUpdater} value={this.state.formData.room}  type  ='text' id ='room' /></label><br/>
-      <label> container    : <input onChange={this.formDataUpdater} value={this.state.formData.container}  type  ='text' id ='container' /></label><br/>
-      <label> containerType: <input onChange={this.formDataUpdater} value={this.state.formData.containerType}  type  ='text' id ='containerType' /></label><br/>
-      <label> description  : <textarea onChange={this.formDataUpdater} value={this.state.formData.description}  id ='description' /></label><br/>
+      <label> Name         : <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='name' /></label><br/>
+      <label> Building     : <input onChange={this.formDataUpdater} value={this.state.formData.building}  type  ='text' id ='building' /></label><br/>
+      <label> Floor        : <input onChange={this.formDataUpdater} value={this.state.formData.floor}  type  ='text' id ='floor' /></label><br/>
+      <label> Room         : <input onChange={this.formDataUpdater} value={this.state.formData.room}  type  ='text' id ='room' /></label><br/>
+      <label> Container    : <input onChange={this.formDataUpdater} value={this.state.formData.container}  type  ='text' id ='container' /></label><br/>
+      <label> Container Type: <input onChange={this.formDataUpdater} value={this.state.formData.containerType}  type  ='text' id ='containerType' /></label><br/>
+      <label> Description  : <textarea onChange={this.formDataUpdater} value={this.state.formData.description}  id ='description' /></label><br/>
       <button type='button' onClick={this.handleSubmit}>submit</button>
     </form>
     <div id='serverResponse'>
