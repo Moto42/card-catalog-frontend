@@ -64,6 +64,10 @@ class BookAdderForm extends React.Component{
 
   handleSubmit(event){
     event.preventDefault();
+    if(!this.state.formData.shelfLocation){
+      this.setState({responseFeedback:"Shelf Location cannot be empty."})
+      return;
+    }
     const payloadData = {...this.state.formData}
     // payloadData.shelfLocation = this.state.stacksList[payloadData.shelfLocation]
     payloadData.shelfLocation = payloadData.shelfLocation?
@@ -138,28 +142,28 @@ class BookAdderForm extends React.Component{
       </details>
     </details>
     <form id='BookAdderForm'>
-      <label> title:         <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='title' />        </label><br/>
-      <label> authorFirst:   <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='authorFirst' />  </label><br/>
-      <label> authorLast:    <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='authorLast' />   </label><br/>
-      <label> genre:         <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='genre' placeholder='Seperate, each, genre, with, a, comma'/>    </label><br/>
-      <label> subjects:      <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='subjects' peholder='Seperate, each, genre, with, a, comma'/>    </label><br/>
-      <label> publisher:     <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='publisher' />    </label><br/>
-      <label> publishedYear: <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='publishedYear' /></label><br/>
-      <label> upc:           <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='upc' />          </label><br/>
-      <label> isbn:          <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='isbn' />         </label><br/>
-      <label> format:        <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='format' list='formatList' />       </label><br/>
+      <label> Title:         <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='title' />        </label><br/>
+      <label> Author First:   <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='authorFirst' />  </label><br/>
+      <label> Author Last:    <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='authorLast' />   </label><br/>
+      <label> Genre:         <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='genre' placeholder='Seperate, each, genre, with, a, comma'/>    </label><br/>
+      <label> Subjects:      <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='subjects' peholder='Seperate, each, genre, with, a, comma'/>    </label><br/>
+      <label> Publisher:     <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='publisher' />    </label><br/>
+      <label> Published Year: <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='publishedYear' /></label><br/>
+      <label> UPC:           <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='upc' />          </label><br/>
+      <label> ISBN:          <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='isbn' />         </label><br/>
+      <label> Format:        <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='format' list='formatList' />       </label><br/>
         <datalist id='formatList'>
           <option>Paperback</option>
           <option>Hardback</option>
           <option>DVD</option>
         </datalist>
       <label>
-        shelfLocation:
+        Shelf Location:
         <select onChange={this.formDataUpdater} type  ='text' id ='shelfLocation' >
           {selectionList}
         </select>
       </label><br/>
-      <label> condition:     <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='state' />        </label><br/>
+      <label> Condition:     <input onChange={this.formDataUpdater} value={this.state.formData.name}  type  ='text' id ='state' />        </label><br/>
       <datalist id='conditionList'>
         <option>Perfect</option>
         <option>Damaged</option>
