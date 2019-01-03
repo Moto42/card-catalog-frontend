@@ -12,9 +12,9 @@ class App extends Component {
     return (
       <div className="App">
         <Tabber>
-          <BookSearch tabName = 'BookSearch' />
-          <StackAdder tabName = 'StackAdder' />
-          <BookAdder  tabName = 'BookAdder' />
+          <BookSearch tabName = 'Book Search' />
+          <StackAdder tabName = 'Add Storage Locations' />
+          <BookAdder  tabName = 'Add Books' />
         </Tabber>
       </div>
     );
