@@ -1,5 +1,6 @@
 import React from 'react';
 import BookListing from './BookListing';
+import './BooksListDisplay.css'
 
 function BooksListDisplay(props) {
   const listings = props.booksList.map(b=><BookListing book={b} showBookInfo={props.showBookInfo}/>)
