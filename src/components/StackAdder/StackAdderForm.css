@@ -7,3 +7,7 @@
 #StackAdderForm textarea{
   vertical-align: top;
 }
+
+details {
+  text-align: left;
+}
